@@ -72,11 +72,11 @@ class TestRobot < MiniTest::Test
     # skip
     # arrange
     my_robot = Robot.new
-    day_off = true
+    my_robot.day_off = 'saturday'
     # act
-    my_test = my_robot.workday?(day_off)
+    my_test = my_robot.workday?('saturday')
     # assert
-    expected = true
+    expected = false
     assert_equal(expected, my_test)
   end
 
@@ -84,9 +84,9 @@ class TestRobot < MiniTest::Test
     # skip
     # arrange
     my_robot = Robot.new
-    day_off = false
+    my_robot.day_off = 'saturday'
     # act
-    my_test = my_robot.workday?(day_off)
+    my_test = my_robot.workday?('monday')
     # assert
     expected = true
     assert_equal(expected, my_test)
